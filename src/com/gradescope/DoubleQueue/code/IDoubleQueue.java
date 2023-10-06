@@ -1,3 +1,11 @@
+/**
+ * Team Members:
+ * Adam Smith
+ * Markus Elmore
+ * Garrett Boling
+ * Ivan Brizo-Diaz
+ */
+
 package com.gradescope.DoubleQueue.code;
 
 /**IDoubleQueueContract
