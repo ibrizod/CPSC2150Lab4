@@ -25,7 +25,8 @@ public class ArrayDoubleQueue implements IDoubleQueue
      */
     public ArrayDoubleQueue(int maxSize)
     {
-
+        this.queueMaxSize = maxSize;
+        this.queue = new Double[queueMaxSize];
 
     }
 
@@ -42,11 +43,16 @@ public class ArrayDoubleQueue implements IDoubleQueue
     @Override
     public void enqueue(Double val)
     {
-//        Will be similar to this . From ListDouble Queue
-//        if(queue.length == this.queueMaxSize)
-//            queue.set(this.queueMaxSize-1, val);
-//        else
-//            queue.add(val);
+        if(queue[0]==null) {
+            queue[0] = val;
+            return;
+        }
+        for (int i =0; i< this.queueMaxSize-2; i++){
+            if (queue[i+1]==null){
+                queue[i+1] = val;
+                return;
+            }
+        }
     }
 
     //Note: The below 3 functions intentionally do not have contracts. You do not need to add them.
