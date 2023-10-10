@@ -69,13 +69,27 @@ public class ArrayDoubleQueue implements IDoubleQueue
     @Override
     public Double dequeue()
     {
-        return queue.pop(0);
+        Double retValue = queue[0];
+        // Shift all elements to the left
+        for (int i = 0; i < queueMaxSize - 1; i++) {
+            queue[i] = queue[i + 1];
+        }
+        queue[queueMaxSize - 1] = null; // Set the last element to null
+        return retValue;
     }
 
     @Override
     public int length()
     {
-        return queue.length;
+        if (queue[0] == null)
+            return 0;
+        int count = 1;
+        for (int i = 0; i < this.queueMaxSize-2; i++){
+            if (queue[i+1] != null){
+                count ++;
+            }
+        }
+        return count;
     }
 
     public String toString()
